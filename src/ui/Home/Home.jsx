@@ -9,26 +9,16 @@ export const Home = () => {
 
     useEffect( () => {
         const getData = async () => {
-            api.allComics().then(
-                res => setComics(res))
+                try {
+                    const allComics = await api.allComics()
+                    setComics(allComics)
+                } catch (error) {
+                    console.error(error)
+                }
             }
-        getData().catch(console.error)
+        console.log('Useffect')
+        getData()
     }, [] )
-
-    /* Preguntas:
-    Yo no le estoy indicando await a la llamada a la api. Sin embargo no veo diferencia en su funcionamientoo ni
-    en los datos de red. Puede ser por que api.allComics ya tiene un await?
-    */
-/*
-    useEffect(() => {
-        const fetchAllComics = async () => {
-            const allComics = await api.allComics()
-            setComics(allComics)
-        }
-
-        fetchAllComics()
-    }, [])
-*/
 
   const filteredComics = comics.filter(comic => comic.title.toLowerCase().includes(filter.toLowerCase()))
 
