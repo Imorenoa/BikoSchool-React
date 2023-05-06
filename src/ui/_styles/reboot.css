@@ -11,9 +11,16 @@ html {
   -webkit-text-size-adjust: 100%; /* 4 */
 }
 
-body {
-  background-color: white; /* 2 */
-  color: #2E404D;
+.container {
   text-align: left; /* 3 */
   font-family: sans-serif;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
+.light {
+  background-color: white;
+  color: #2E404D;
 }
